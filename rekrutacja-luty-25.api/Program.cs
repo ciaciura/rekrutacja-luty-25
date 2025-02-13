@@ -9,7 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("Current"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+    options.UseMySql(builder.Configuration.GetConnectionString("Current"), Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.36-mysql")));
 
 var app = builder.Build();
 
