@@ -1,12 +1,15 @@
 using Microsoft.EntityFrameworkCore;
+using rekrutacja_luty_25.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<DbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+builder.Services.AddControllers();
+
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("Current"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
 
 var app = builder.Build();
 
@@ -16,6 +19,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.MapControllers();
 app.UseHttpsRedirection();
 
 app.Run();

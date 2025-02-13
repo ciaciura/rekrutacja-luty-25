@@ -1,7 +1,7 @@
 using System;
-using rekrutacja_luty_25.Models.Dictionaries;
+using rekrutacja_luty_25.commons.Models.Dictionaries;
 
-namespace rekrutacja_luty_25.Models;
+namespace rekrutacja_luty_25.commons.Models;
 
 public class Authority
 {

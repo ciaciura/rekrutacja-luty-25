@@ -1,6 +1,6 @@
 using System;
 
-namespace rekrutacja_luty_25.Models.Dictionaries;
+namespace rekrutacja_luty_25.commons.Models.Dictionaries;
 
 public class DictCountry : DictBase
 {

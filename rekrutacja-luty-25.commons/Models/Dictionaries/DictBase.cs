@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace rekrutacja_luty_25.Models.Dictionaries;
+namespace rekrutacja_luty_25.commons.Models.Dictionaries;
 
 public class DictBase
 {

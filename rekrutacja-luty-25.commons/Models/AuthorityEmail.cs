@@ -1,11 +1,11 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace rekrutacja_luty_25.Models;
+namespace rekrutacja_luty_25.commons.Models;
 
-public class AuthorityPhoneNumber
+public class AuthorityEmail
 {
-        /// <summary>
+            /// <summary>
         /// Identyfikator
         /// </summary>
         [JsonIgnore]
@@ -13,7 +13,7 @@ public class AuthorityPhoneNumber
         /// <summary>
         /// Numer telefonu
         /// </summary>
-        public string Number { get; set; }
+        public string Email { get; set; }
         /// <summary>
         /// Czy jest aktywny
         /// </summary>
