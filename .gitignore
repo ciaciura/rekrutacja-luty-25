@@ -398,3 +398,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/rekrutacja-luty-25.api/appsettings.json
+/rekrutacja-luty-25.api/Properties/launchSettings.json
