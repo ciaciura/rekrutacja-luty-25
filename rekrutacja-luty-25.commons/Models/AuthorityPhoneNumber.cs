@@ -8,7 +8,6 @@ public class AuthorityPhoneNumber
         /// <summary>
         /// Identyfikator
         /// </summary>
-        [JsonIgnore]
         public int Id { get; set; }
         /// <summary>
         /// Numer telefonu

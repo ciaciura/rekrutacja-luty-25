@@ -6,6 +6,29 @@ namespace rekrutacja_luty_25.Data;
 
 public partial class DatabaseContext : DbContext
 {
+    public DatabaseContext()
+    {
+
+    }
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    if (!optionsBuilder.IsConfigured)
+    {
+        optionsBuilder.EnableDetailedErrors(true);
+        optionsBuilder.EnableSensitiveDataLogging(true);
+
+        optionsBuilder
+            .UseSqlite(
+                "Data Source=rekrutacja-10.25-baza.db"
+            )
+            //.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+            .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Error)
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors();
+    }
+}
+
     public DatabaseContext(DbContextOptions<DatabaseContext> options)
         : base(options)
     {
@@ -15,7 +38,7 @@ public partial class DatabaseContext : DbContext
     public virtual DbSet<AuthorityEmail> AuthorityEmails { get; set; }
     public virtual DbSet<AuthorityPhoneNumber> AuthorityPhoneNumbers { get; set; }
     public virtual DbSet<DictCountry> DictCountry { get; set; }
-
+    public virtual DbSet<User> Users { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Authority>(p =>
@@ -184,6 +207,13 @@ public partial class DatabaseContext : DbContext
             .HasColumnName("name");
 
             p.Ignore(p => p.Description);
+
+        });
+
+        modelBuilder.Entity<User>(p =>
+        {
+            p.ToTable("User");
+            p.HasKey(k => k.Id);
 
         });
 
