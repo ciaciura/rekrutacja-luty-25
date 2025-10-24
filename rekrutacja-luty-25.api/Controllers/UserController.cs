@@ -16,11 +16,15 @@ namespace rekrutacja_luty_25.Controllers
         public User Get(int id)
         {
             var db = new DatabaseContext();
-
             var users = db.Users.ToList();
-
-            var user = users.Where(x => x.Id == id).FirstOrDefault();
-
+            User user = null; 
+            foreach (var u in users)
+            {
+                if (u.Id == id)
+                {
+                    user = u;
+                }
+            }
             return user;
         }
     }
